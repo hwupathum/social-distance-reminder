@@ -10,7 +10,7 @@ class BeaconDatabase {
   BeaconDatabase._init();
 
   Future<Database> get database async {
-    if (database != null) return _database!;
+    if (_database != null) return _database!;
 
     _database = await _initDB('beacons.db');
     return _database!;
@@ -24,8 +24,8 @@ class BeaconDatabase {
   }
 
   Future _createDB(Database db, int version) async {
-    final idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
-    final stringType = 'TEXT NOT NULL';
+    const idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
+    const stringType = 'TEXT NOT NULL';
 
     await db.execute('''
     CREATE TABLE $tableBeacons (

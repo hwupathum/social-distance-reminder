@@ -16,18 +16,16 @@ class Beacon {
     required this.name,
   });
 
-
   Beacon copy({int? id, String? name}) =>
-    Beacon(id: id ?? this.id, name: name ?? this.name);
+      Beacon(id: id ?? this.id, name: name ?? this.name);
 
   Map<String, Object?> toJson() => {
-    BeaconFields.id: id,
-    BeaconFields.name: name,
-  };
+        BeaconFields.id: id,
+        BeaconFields.name: name,
+      };
 
   static Beacon fromJson(Map<String, Object?> json) => Beacon(
-    id: json[BeaconFields.id] as int?,
-    name: json[BeaconFields.name] as String,
-  );
-
+        id: json[BeaconFields.id] as int?,
+        name: json[BeaconFields.name] as String,
+      );
 }
