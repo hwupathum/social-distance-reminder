@@ -49,15 +49,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
   int _currentIndex = 0;
   PageController pageController = PageController();
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
           //     ? DynamicTheme.of(context)!.setTheme(AppThemes.lightRed)
           //     : DynamicTheme.of(context)!.setTheme(AppThemes.lightBlue);
         },
-        children: [DiscoverView(counter: _counter), const SettingsView()],
+        children: const [DiscoverView(), SettingsView()],
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
@@ -96,11 +89,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
